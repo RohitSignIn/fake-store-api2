@@ -33,7 +33,7 @@ app.use(
   cors({
     origin: true,
     credentials: true,
-    sameSite: "none",
+    SameSite: "none",
     secure: true,
   })
 );
