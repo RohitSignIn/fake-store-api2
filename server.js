@@ -6,7 +6,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const dotenvExpand = require("dotenv-expand");
 const myEnv = dotenv.config();
-const https = require("https");
+// const https = require("https");
 const fs = require("fs");
 dotenvExpand.expand(myEnv);
 
@@ -62,21 +62,21 @@ mongoose.set("useUnifiedTopology", true);
 mongoose
   .connect(process.env.DATABASE_URL, { useNewUrlParser: true })
   .then(() => {
-    const serverHTTPS = https.createServer(
-      {
-        key: fs.readFileSync("./cert/key.pem"),
-        cert: fs.readFileSync("./cert/cert.pem"),
-      },
-      app
-    );
+    // const serverHTTPS = https.createServer(
+    //   {
+    //     key: fs.readFileSync("./cert/key.pem"),
+    //     cert: fs.readFileSync("./cert/cert.pem"),
+    //   },
+    //   app
+    // );
 
-    serverHTTPS.listen(port, () => {
-      console.log("connected");
-    });
-
-    // app.listen(port, () => {
-    //   console.log("Connected");
+    // serverHTTPS.listen(port, () => {
+    //   console.log("connected");
     // });
+
+    app.listen(port, () => {
+      console.log("Connected");
+    });
   })
   .catch((err) => {
     console.log(err);
