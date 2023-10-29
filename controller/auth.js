@@ -47,7 +47,14 @@ module.exports.login = (req, res) => {
             sameSite: "none",
             secure: true,
           });
-          res.send({ success: true, message: "Successfully Signed in" });
+          res.send({
+            success: true,
+            message: "Successfully Signed in",
+            user_id: user.id,
+            username: user.username,
+            email: user.email,
+            auth: true,
+          });
         } else {
           res.status(401);
           res.send({ success: false, message: "Invalid Credentials" });
