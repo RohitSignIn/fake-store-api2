@@ -26,7 +26,11 @@ module.exports.login = (req, res) => {
             process.env.ACCESS_TOKEN_SECRET
           );
 
-          res.cookie("token", token, { httpOnly: true });
+          res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
           res.cookie("user_id", user.id);
           res.cookie("username", user.username);
           res.cookie("email", user.email);
