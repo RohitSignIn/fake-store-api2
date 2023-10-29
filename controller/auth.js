@@ -31,10 +31,26 @@ module.exports.login = (req, res) => {
             sameSite: "none",
             secure: true,
           });
-          res.cookie("user_id", user.id);
-          res.cookie("username", user.username);
-          res.cookie("email", user.email);
-          res.cookie("auth", true);
+          res.cookie("user_id", user.id, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
+          res.cookie("username", user.username, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
+          res.cookie("email", user.email, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
+          res.cookie("auth", true, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
           res.send({ success: true, message: "Successfully Signed in" });
         } else {
           res.status(401);
