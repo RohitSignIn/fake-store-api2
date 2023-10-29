@@ -32,22 +32,18 @@ module.exports.login = (req, res) => {
             secure: true,
           });
           res.cookie("user_id", user.id, {
-            httpOnly: true,
             sameSite: "none",
             secure: true,
           });
           res.cookie("username", user.username, {
-            httpOnly: true,
             sameSite: "none",
             secure: true,
           });
           res.cookie("email", user.email, {
-            httpOnly: true,
             sameSite: "none",
             secure: true,
           });
           res.cookie("auth", true, {
-            httpOnly: true,
             sameSite: "none",
             secure: true,
           });
